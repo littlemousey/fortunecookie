@@ -30,7 +30,22 @@ img:hover {
 
 h1 {
 	color: #CC232A;
-	text-shadow: 0 0 5px #000;
+	text-shadow: 5px 5px 5px #000;
+}
+
+.fortune-cookie {
+	cursor: pointer;
+	display: inline-block;
+	background-color: #CC232A;
+	border-radius: 50%;
+	padding: 20px;
+}
+
+.message {
+	background-color: white;
+	color: black;
+	padding: 20px;
+	margin-bottom: 30px;
 }
 
 @media (max-width: 639px) {

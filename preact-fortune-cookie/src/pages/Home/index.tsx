@@ -1,12 +1,33 @@
+import { useState } from 'preact/hooks';
+import sound from '../../assets/crumple.mp3';
 import fortuneCookieClosedImg from '../../assets/fortune-cookie-closed.png';
+import fortuneCookieOpenImg from '../../assets/fortune-cookie-open.png';
 import './style.css';
 
 export function Home() {
+	const [isCookieOpen, setOpenCookie] = useState(false);
+
+	const fortuneCookieImgUrl = isCookieOpen ? fortuneCookieOpenImg : fortuneCookieClosedImg
+
+	let audio = new Audio(sound)
+
+	const playSound = () => {
+	  audio.play()
+	}
+
+	const handleClick = () => {
+		playSound()
+		setOpenCookie(!isCookieOpen)
+	}
+
 	return (
 		<div class="home">
-			<a href="https://preactjs.com" target="_blank">
-				<img src={fortuneCookieClosedImg} alt="Preact logo" height="160" width="160" />
-			</a>
+			{isCookieOpen && <div class="message">
+				A friend to everybody is a friend to nobody
+			</div>}
+			<div class="fortune-cookie" onClick={handleClick}>
+				<img src={fortuneCookieImgUrl} alt="Fortune cookie" height="160" />
+			</div>
 			<h1>What are you waiting for? Open your fortune cookie!</h1>
 			{/* <section>
 				<Resource
