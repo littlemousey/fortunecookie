@@ -50,6 +50,11 @@ header a:hover {
 	background-color: #0008;
 }
 
+header .icon {
+	cursor: pointer;
+	font-size: 30px;
+}
+
 main {
 	flex: auto;
 	display: flex;
