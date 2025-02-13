@@ -2,59 +2,48 @@ import { useState } from 'preact/hooks';
 import sound from '../../assets/crumple.mp3';
 import fortuneCookieClosedImg from '../../assets/fortune-cookie-closed.png';
 import fortuneCookieOpenImg from '../../assets/fortune-cookie-open.png';
+import fortuneJson from '../../assets/fortunes.json';
 import './style.css';
+
+let audio = new Audio(sound)
+
+const getFortune = () => {
+	return fortuneJson[Math.floor(Math.random() * fortuneJson.length)];
+}
 
 export function Home() {
 	const [isCookieOpen, setOpenCookie] = useState(false);
+	const [fortune, setFortune] = useState('');
 
 	const fortuneCookieImgUrl = isCookieOpen ? fortuneCookieOpenImg : fortuneCookieClosedImg
-
-	let audio = new Audio(sound)
+	
 
 	const playSound = () => {
 	  audio.play()
 	}
 
 	const handleClick = () => {
+		if (isCookieOpen) { return; }
+
 		playSound()
 		setOpenCookie(!isCookieOpen)
+		setFortune(getFortune())
 	}
 
 	return (
 		<div class="home">
 			{isCookieOpen && <div class="message">
-				A friend to everybody is a friend to nobody
+				{fortune}
+			</div>}
+			{!isCookieOpen && <div class="message">
+				What are you waiting for? Open your fortune cookie!
 			</div>}
 			<div class="fortune-cookie" onClick={handleClick}>
 				<img src={fortuneCookieImgUrl} alt="Fortune cookie" height="160" />
 			</div>
-			<h1>What are you waiting for? Open your fortune cookie!</h1>
-			{/* <section>
-				<Resource
-					title="Learn Preact"
-					description="If you're new to Preact, try the interactive tutorial to learn important concepts"
-					href="https://preactjs.com/tutorial"
-				/>
-				<Resource
-					title="Differences to React"
-					description="If you're coming from React, you may want to check out our docs to see where Preact differs"
-					href="https://preactjs.com/guide/v10/differences-to-react"
-				/>
-				<Resource
-					title="Learn Vite"
-					description="To learn more about Vite and how you can customize it to fit your needs, take a look at their excellent documentation"
-					href="https://vitejs.dev"
-				/>
-			</section> */}
+			<div>
+				{isCookieOpen && <button class="new-cookie" onClick={() => setOpenCookie(false)}>New cookie</button>}
+			</div>
 		</div>
-	);
-}
-
-function Resource(props) {
-	return (
-		<a href={props.href} target="_blank" class="resource">
-			<h2>{props.title}</h2>
-			<p>{props.description}</p>
-		</a>
 	);
 }
