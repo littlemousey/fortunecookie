@@ -32,17 +32,23 @@ export function Home() {
 
 	return (
 		<div class="home">
-			{isCookieOpen && <div class="message">
-				{fortune}
-			</div>}
-			{!isCookieOpen && <div class="message">
-				What are you waiting for? Open your fortune cookie!
-			</div>}
+			{isCookieOpen && 
+				<div class="message-border">
+					<div class="message">
+						{fortune}
+					</div>
+				</div>}
+			{!isCookieOpen && 
+				<div class="message-border">
+					<div class="message">
+						What are you waiting for? Open your fortune cookie!
+					</div>
+				</div>}
 			<div class="fortune-cookie" onClick={handleClick}>
 				<img src={fortuneCookieImgUrl} alt="Fortune cookie" height="160" />
 			</div>
 			<div>
-				{isCookieOpen && <button class="new-cookie" onClick={() => setOpenCookie(false)}>New cookie</button>}
+				{isCookieOpen && <button class="button-56" role="button" onClick={() => setOpenCookie(false)}>New cookie</button>}
 			</div>
 		</div>
 	);

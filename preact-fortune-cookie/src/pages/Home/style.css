@@ -41,21 +41,51 @@ h1 {
 	padding: 20px;
 }
 
-.message {
+.message-border {
 	background-color: #f2dcb1;
 	border-radius: 12% 4% / 15% 80%;
 	color: black;
 	font-size: 20px;
 	padding: 20px 50px;
 	margin-bottom: 30px;
+	border: 4px solid #c99868;
+	box-shadow: inset 20px 0px 0px #c99868;
 }
 
-.new-cookie {
-	padding: 10px 20px;
-	color: black;
-	background-color: #CC232A;
-	border-color: #CC232A;
-	margin-top: 30px;
+
+.button-56 {
+	align-items: center;
+	background-color: #fee6e3;
+	border: 2px solid #111;
+	border-radius: 8px;
+	box-sizing: border-box;
+	color: #111;
+	cursor: pointer;
+	display: flex;
+	font-family: Inter,sans-serif;
+	font-size: 16px;
+	height: 48px;
+	justify-content: center;
+	line-height: 24px;
+	margin: 30px auto;
+	max-width: 100%;
+	padding: 0 25px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.button-56:hover {
+	background-color: #ffdeda;
+	outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
 }
 
 @media (max-width: 639px) {
