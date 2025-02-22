@@ -53,6 +53,7 @@ header a:hover {
 header .icon {
 	cursor: pointer;
 	font-size: 30px;
+	padding: 0 15px;
 }
 
 main {
@@ -68,6 +69,14 @@ main {
 	main {
 		margin: 2rem;
 	}
+}
+
+h1 {
+	color: white;
+}
+
+section {
+	text-align: center;
 }
 
 /* @media (prefers-color-scheme: dark) {

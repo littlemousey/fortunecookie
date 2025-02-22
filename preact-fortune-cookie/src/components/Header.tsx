@@ -29,16 +29,19 @@ export function Header() {
 	return (
 		<header>
 			<nav>
-				<a href="/" class={url == '/' && 'active'}>
-					Home
-				</a>
-				<a href="/404" class={url == '/404' && 'active'}>
-					404
-				</a>
 				<span class="icon" onClick={handleMusicToggle}>
 					{!toggle && <span onClick={musicOn}>🔊</span>}
 					{toggle && <span onClick={musicOff}>🔇</span>}
 				</span>
+				<a href="/" class={url == '/' && 'active'}>
+					Get cookie
+				</a>
+				<a href="/lunaryear" class={url == '/lunaryear' && 'active'}>
+					What's New Lunar Year?
+				</a>
+				<a href="/hongbao" class={url == '/hongbao' && 'active'}>
+					Hongbao
+				</a>
 			</nav>
 		</header>
 	);
