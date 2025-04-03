@@ -8,6 +8,7 @@
 	},
 	"dependencies": {
 		"@fireworks-js/preact": "^2.10.8",
+		"@preact/signals": "^2.0.1",
 		"preact": "^10.25.3",
 		"preact-iso": "^2.8.1"
 	},

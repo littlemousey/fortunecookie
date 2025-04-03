@@ -6,6 +6,7 @@ import { Home } from './pages/Home/index.jsx';
 import { NotFound } from './pages/_404.jsx';
 import { HongBao } from './pages/_hongbao.js';
 import { LunarYear } from './pages/_lunaryear.js';
+import { Overview } from './pages/_overview.js';
 import './style.css';
 
 export function App() {
@@ -18,6 +19,7 @@ export function App() {
 					<Route default component={NotFound} />
 					<Route path="/hongbao" component={HongBao} />
 					<Route path="/lunaryear" component={LunarYear} />
+					<Route path="/overview" component={Overview} />
 				</Router>
 			</main>
 		</LocationProvider>

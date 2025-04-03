@@ -42,6 +42,9 @@ export function Header() {
 				<a href="/hongbao" class={url == '/hongbao' && 'active'}>
 					Hongbao
 				</a>
+				<a href="/overview" class={url == '/overview' && 'active'}>
+					Overview
+				</a>
 			</nav>
 		</header>
 	);
