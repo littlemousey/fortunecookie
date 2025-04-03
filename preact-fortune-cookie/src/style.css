@@ -76,8 +76,12 @@ h1 {
 }
 
 section {
+	background-color: #f2dcb1;
+	border-radius: 2px;
+	padding: 20px;
 	text-align: center;
 }
+
 
 /* @media (prefers-color-scheme: dark) {
 	:root {
