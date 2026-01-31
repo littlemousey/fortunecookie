@@ -3,6 +3,7 @@ import sound from '../../assets/crumple.mp3';
 import fortuneCookieClosedImg from '../../assets/fortune-cookie-closed.png';
 import fortuneCookieOpenImg from '../../assets/fortune-cookie-open.png';
 import fortuneJson from '../../assets/fortunes.json';
+import { useFortuneActions, useCollectedFortunesCount } from '../../stores/fortuneStore';
 import './style.css';
 
 let audio = new Audio(sound)
@@ -14,6 +15,8 @@ const getFortune = () => {
 export function Home() {
 	const [isCookieOpen, setOpenCookie] = useState(false);
 	const [fortune, setFortune] = useState('');
+	const { addFortune } = useFortuneActions();
+	const collectedCount = useCollectedFortunesCount();
 
 	const fortuneCookieImgUrl = isCookieOpen ? fortuneCookieOpenImg : fortuneCookieClosedImg
 	
@@ -27,7 +30,9 @@ export function Home() {
 
 		playSound()
 		setOpenCookie(!isCookieOpen)
-		setFortune(getFortune())
+		const newFortune = getFortune();
+		setFortune(newFortune);
+		addFortune(newFortune);
 	}
 
 	return (
@@ -46,6 +51,11 @@ export function Home() {
 				</div>}
 			<div class="fortune-cookie" onClick={handleClick}>
 				<img src={fortuneCookieImgUrl} alt="Fortune cookie" height="160" />
+			{collectedCount > 0 && (
+				<div class="collected-count">
+					Fortunes collected: {collectedCount}
+				</div>
+			)}
 			</div>
 			<div>
 				{isCookieOpen && <button class="button-56" role="button" onClick={() => setOpenCookie(false)}>New cookie</button>}

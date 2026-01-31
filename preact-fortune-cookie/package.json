@@ -9,7 +9,8 @@
 	"dependencies": {
 		"@preact/signals": "^2.0.1",
 		"preact": "^10.25.3",
-		"preact-iso": "^2.8.1"
+		"preact-iso": "^2.8.1",
+		"zustand": "^5.0.10"
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.9.3",
