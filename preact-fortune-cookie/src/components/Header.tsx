@@ -6,7 +6,7 @@ const backgroundMusic = new Audio(sound);
 
 export function Header() {
 	const { url } = useLocation();
-	const [toggle, setToggle] = useReducer(() => !toggle, false);
+	const [toggle, setToggle] = useReducer((state) => !state, false);
 
 	const handleMusicToggle = () => {
 		if (!toggle) {
@@ -33,16 +33,16 @@ export function Header() {
 					{!toggle && <span onClick={musicOn}>🔊</span>}
 					{toggle && <span onClick={musicOff}>🔇</span>}
 				</span>
-				<a href="/" class={url == '/' && 'active'}>
+				<a href="/" class={url === '/' ? 'active' : ''}>
 					Get cookie
 				</a>
-				<a href="/lunaryear" class={url == '/lunaryear' && 'active'}>
-					What's New Lunar Year?
+				<a href="/lunaryear" class={url === '/lunaryear' ? 'active' : ''}>
+					Lunar New Year
 				</a>
-				<a href="/hongbao" class={url == '/hongbao' && 'active'}>
+				<a href="/hongbao" class={url === '/hongbao' ? 'active' : ''}>
 					Hongbao
 				</a>
-				<a href="/overview" class={url == '/overview' && 'active'}>
+				<a href="/overview" class={url == '/overview' ? 'active' : ''}>
 					Overview
 				</a>
 			</nav>
